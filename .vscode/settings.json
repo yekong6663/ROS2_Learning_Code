@@ -1,0 +1,7 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/workspaces/ROS2_Learning_Code/install/3_python_turtle_feedback_control/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

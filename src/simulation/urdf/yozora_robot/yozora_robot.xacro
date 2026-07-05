@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="yozora_robot">
+
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/base_robot.xacro"/>
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/sensor/laser.xacro"/>
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/sensor/imu.xacro"/>
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/sensor/camera.xacro"/>
+
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/actuator/wheel.xacro"/>
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/actuator/caster.xacro"/>
+
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/plugin/gazebo_control_plugin.xacro"/>
+    <xacro:include filename="$(find simulation)/urdf/yozora_robot/plugin/gazebo_sensor_plugin.xacro"/>
+
+
+
+    <xacro:base_macro length="0.12" radius="0.1" />
+    <!-- 传感器 -->
+    <xacro:imu_macro xyz="0 0 0.02" />        
+    <xacro:laser_macro xyz="0 0 0.10" />      
+    <xacro:camera_macro xyz="0.10 0 0.075" /> 
+
+    <!-- 左轮：车身左侧 0.10m，下方 0.06m -->
+    <xacro:wheel_macro xyz="0 0.10 -0.06" wheel_name="left" />
+    <!-- 右轮：车身右侧 0.10m，下方 0.06m -->
+    <xacro:wheel_macro xyz="0 -0.10 -0.06" wheel_name="right" />
+    
+    <!-- 前万向轮：车身前方 0.08m，下方 0.076m -->
+    <xacro:caster_macro xyz="0.08 0.0 -0.076" caster_name="front" />
+    <!-- 后万向轮：车身后方 0.08m，下方 0.076m -->
+    <xacro:caster_macro xyz="-0.08 0.0 -0.076" caster_name="back" />
+
+    <xacro:gazebo_control_plugin />
+    <xacro:gazebo_sensor_plugin />
+
+
+</robot>
